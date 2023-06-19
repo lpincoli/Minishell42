@@ -12,18 +12,18 @@
 
 #include "../includes/minishell.h"
 
-void	ft_sub_dollar_if_1(char *pippo, t_env *sp, t_norm *n)
+void	ft_sub_dollar_if_1(char *result, t_env *sp, t_norm *n)
 {
 	char	*str;
 
 	str = ft_itoa(sp->exit);
 	while (str[n->k])
-		pippo[n->j++] = str[n->k++];
+		result[n->j++] = str[n->k++];
 	n->i += 2;
 	free(str);
 }
 
-void	ft_sub_dollar_elif(char *tok, char *pippo, t_env *sp)
+void	ft_sub_dollar_elif(char *tok, char *result, t_env *sp)
 {
 	char	*sub;
 	char	*str;
@@ -38,40 +38,40 @@ void	ft_sub_dollar_elif(char *tok, char *pippo, t_env *sp)
 	if (str)
 	{
 		while (str[sp->n->k] != '\0')
-			pippo[sp->n->j++] = str[sp->n->k++];
+			result[sp->n->j++] = str[sp->n->k++];
 	}
 }
 
-int	ft_sub_dollar_if_long(char *tok, char *pippo, t_env *sp, t_norm *n)
+int	ft_sub_dollar_if_long(char *tok, char *result, t_env *sp, t_norm *n)
 {
 	if ((n->i == 0 || tok[n->i - 1] == ' ' || tok[n->i - 1] == '\t')
 		&& tok[n->i] == '$' && (tok[n->i + 1] == ' ' || tok[n->i + 1] == '\t'))
-		pippo[n->j++] = tok[n->i++];
+		result[n->j++] = tok[n->i++];
 	else if (tok[n->i] == '$' && (tok[n->i + 1] == ' '
 			|| tok[n->i + 1] == '\t' || tok[n->i + 1] == '"'))
-		pippo[n->j++] = tok[n->i++];
+		result[n->j++] = tok[n->i++];
 	else if (tok[n->i] == '$' && tok[n->i + 1] == 39)
 		n->i++;
 	else if (tok[n->i] == '$' && tok[n->i + 1] == '?')
-		ft_sub_dollar_if_1(pippo, sp, n);
+		ft_sub_dollar_if_1(result, sp, n);
 	else if (tok[n->i] == '$')
 	{
 		if (tok[n->i + 1] == '\0')
 		{
-			pippo[n->j] = '$';
-			pippo[n->j + 1] = '\0';
+			result[n->j] = '$';
+			result[n->j + 1] = '\0';
 			return (1);
 		}
-		ft_sub_dollar_elif(tok, pippo, sp);
+		ft_sub_dollar_elif(tok, result, sp);
 	}
 	return (0);
 }
 
-int	grazie_pippo(char *pippo, char *tok)
+int	free_result(char *result, char *tok)
 {
-	if (!pippo || !*pippo)
+	if (!result || !*result)
 	{
-		free(pippo);
+		free(result);
 		free(tok);
 		return (1);
 	}
@@ -81,27 +81,27 @@ int	grazie_pippo(char *pippo, char *tok)
 
 char	*ft_sub_dollar(char *tok, t_env *sp, t_norm *n)
 {
-	char	*pippo;
+	char	*result;
 
 	ft_reset_norm(n);
-	pippo = calloc(1000, sizeof(char));
+	result = calloc(1000, sizeof(char));
 	while (tok[n->i])
 	{		
 		while (tok[n->i] != '$' && tok[n->i] != 39 && tok[n->i])
-			pippo[n->j++] = tok[n->i++];
-		if (ft_sub_dollar_if_long(tok, pippo, sp, n))
+			result[n->j++] = tok[n->i++];
+		if (ft_sub_dollar_if_long(tok, result, sp, n))
 			break ;
 		if (tok[n->i] == 39)
 		{
 			while (strchr(&tok[n->i + 1], 39))
-				pippo[n->j++] = tok[n->i++];
-			pippo[n->j++] = tok[n->i++];
+				result[n->j++] = tok[n->i++];
+			result[n->j++] = tok[n->i++];
 		}
 		if (!tok[n->i])
 			break ;
 		n->k = 0;
 	}
-	if (grazie_pippo(pippo, tok))
+	if (free_result(result, tok))
 		return (NULL);
-	return (pippo);
+	return (result);
 }

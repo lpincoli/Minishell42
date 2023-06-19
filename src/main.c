@@ -62,7 +62,7 @@ void	ft_init_main_1(int ac, char **av, char **env)
 	ft_mkdir_heredoc(g_sp);
 }
 
-void	ft_ema_distrugge(void)
+void	processShellInput(void)
 {
 	if (g_sp->line[0])
 	{
@@ -98,6 +98,6 @@ int	main(int ac, char **av, char **env)
 			if (ft_check_heredoc2(h, g_sp))
 				continue ;
 		}
-		ft_ema_distrugge();
+		processShellInput();
 	}
 }

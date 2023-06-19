@@ -86,17 +86,17 @@ void	ft_export(t_env *sp)
 		&& sp->tk->type != '>' && sp->tk->type != '-'
 		&& sp->tk->type != '+' && sp->tk->type != '<' )
 	{
-		if (primo_if(sp))
+		if (check_empty_token_and_move_next(sp))
 			continue ;
-		if (secondo_if(sp, head))
+		if (check_equal_sign_alone_and_reset(sp, head))
 			return ;
-		if (terzo_if(sp, head))
+		if (check_valid_identifier_and_reset(sp, head))
 			return ;
 		if (sp->tk->str && !ft_strchr(sp->tk->str, '='))
-			quarto_if(sp);
+			handle_var_assignment(sp);
 		else
 		{
-			if (quinto_if(sp))
+			if (handle_var_substitution(sp))
 				continue ;
 		}
 	}

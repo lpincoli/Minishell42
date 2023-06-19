@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-int	primo_if(t_env *sp)
+int	check_empty_token_and_move_next(t_env *sp)
 {
 	if (!*sp->tk->str && sp->tk->next)
 	{
@@ -27,7 +27,7 @@ int	primo_if(t_env *sp)
 	return (0);
 }
 
-int	secondo_if(t_env *sp, t_token *head)
+int	check_equal_sign_alone_and_reset(t_env *sp, t_token *head)
 {
 	if (sp->tk->str[0] == '=' && sp->tk->str[1] == '\0')
 	{
@@ -39,7 +39,7 @@ int	secondo_if(t_env *sp, t_token *head)
 	return (0);
 }
 
-int	terzo_if(t_env *sp, t_token *head)
+int	check_valid_identifier_and_reset(t_env *sp, t_token *head)
 {
 	if (!ft_is_variable(sp->tk->str, sp->n) && !ft_is_word(sp->tk->str))
 	{
@@ -51,7 +51,7 @@ int	terzo_if(t_env *sp, t_token *head)
 	return (0);
 }
 
-void	quarto_if(t_env *sp)
+void	handle_var_assignment(t_env *sp)
 {	
 	int	flag;
 	int	len;
@@ -79,7 +79,7 @@ void	quarto_if(t_env *sp)
 	}
 }
 
-int	quinto_if(t_env *sp)
+int	handle_var_substitution(t_env *sp)
 {	
 	int	i;
 

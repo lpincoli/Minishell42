@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-void	ft_init_cose(t_env *sp, char **argv)
+void	initialize_execution(t_env *sp, char **argv)
 {
 	execve(sp->tk->str, argv, sp->env);
 	ft_errors(sp, 4, 127);
@@ -24,7 +24,7 @@ void	ft_init_cose(t_env *sp, char **argv)
 	}
 }
 
-void	ft_printacose(int corpse, int status, pid_t pid)
+void	print_process_status(int corpse, int status, pid_t pid)
 {
 	if (corpse < 0)
 		printf("Failed to wait for process %d (errno = %d)\n",
@@ -55,15 +55,15 @@ void	ft_wife_status(t_env *sp, int status)
 		return ;
 }
 
-void	ft_fai_altro(t_env *sp, int status, pid_t pid)
+void	handle_child_process(t_env *sp, int status, pid_t pid)
 {
 	int		corpse;
 
 	corpse = wait(&status);
 	if (corpse < 0)
-		ft_printacose(corpse, status, pid);
+		print_process_status(corpse, status, pid);
 	else if (corpse != pid)
-		ft_printacose(corpse, status, pid);
+		print_process_status(corpse, status, pid);
 	else if (WIFEXITED(status))
 		sp->exit = 0;
 	else if (WIFSIGNALED(status))
@@ -75,20 +75,20 @@ void	ft_fai_altro(t_env *sp, int status, pid_t pid)
 	}
 }
 
-void	ft_exec2(t_env *sp)
+void	execute_command(t_env *sp)
 {
 	pid_t	pid;
 	char	**argv;
 	int		status;
 
 	status = 0;
-	if (ft_nonlosoio(sp))
+	if (expand_home_directory(sp))
 		return ;
-	argv = ft_sugar_mommy(sp->tk);
+	argv = ft_extract_tokens(sp->tk);
 	pid = fork();
 	if (pid == 0)
-		ft_init_cose(sp, argv);
+		initialize_execution(sp, argv);
 	else
-		ft_fai_altro(sp, status, pid);
+		handle_child_process(sp, status, pid);
 	free(argv);
 }

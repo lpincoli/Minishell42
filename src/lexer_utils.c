@@ -31,7 +31,7 @@ void	addbot(t_token **start, char *str, t_norm *n)
 	t_token	*tmp;
 
 	last = (t_token *)malloc(sizeof(t_token));
-	last->str = ft_lavori_in_casa_pd(str, n);
+	last->str = processInput(str, n);
 	last->type = n->type;
 	last->next = NULL;
 	tmp = *start;
@@ -69,7 +69,7 @@ void	ft_grouponize(t_token *token, t_env *sp)
 void	ft_create_tk(t_token	*token, char *str, t_env *sp)
 {
 	ft_reset_norm(sp->n);
-	token->str = ft_lavori_in_casa_pd(str, sp->n);
+	token->str = processInput(str, sp->n);
 	token->type = sp->n->type;
 	token->next = NULL;
 	token->prev = NULL;

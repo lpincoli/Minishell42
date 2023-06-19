@@ -26,7 +26,7 @@ int	ft_tksize(t_token *lst)
 	return (i);
 }
 
-char	**ft_sugar_mommy(t_token *tk)
+char	**ft_extract_tokens(t_token *tk)
 {
 	char	**av;
 	int		i;
@@ -46,13 +46,13 @@ char	**ft_sugar_mommy(t_token *tk)
 	return (av);
 }
 
-void	handler1(int signum)
+void	handle_sigsegv(int signum)
 {
 	if (signum == SIGSEGV)
 		WEXITSTATUS(139);
 }
 
-int	ft_nonlosoio(t_env *sp)
+int	expand_home_directory(t_env *sp)
 {
 	char	*str;
 	char	*str1;

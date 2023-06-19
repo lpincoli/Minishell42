@@ -6,7 +6,7 @@ END			= \e[0m
 
 SRCS 		=	src/main.c src/utils.c src/command.c src/lexer.c src/node.c src/errors.c \
 				src/exec.c src/parser.c src/ft_cd.c src/ft_export.c src/space_killer.c	\
-				src/slashyer.c src/sep_pipe.c src/lavori_in_casa_pd.c src/dollaroni.c \
+				src/slashyer.c src/sep_pipe.c src/tokenization.c src/dollaroni.c \
 				src/heredoc.c src/lexer_utils.c src/command_utils.c src/exec_utils.c \
 				src/ft_export_if.c src/ft_export_realloc.c src/ft_export_utils.c \
 				src/cd_utils.c src/cd_more_utils.c src/parser2.c src/parser3.c \

@@ -82,7 +82,7 @@ int	ft_command_utils(t_env *sp, t_path *pwd)
 			ft_save_var(sp->tk->str, sp);
 	}
 	else
-		ft_exec2(sp);
+		execute_command(sp);
 	return (0);
 }
 

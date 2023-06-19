@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-void	ft_slashyer_if1(char *str, char *line, t_norm *n)
+void	process_escape_sequence_backspace_alert(char *str, char *line, t_norm *n)
 {
 	if (str[n->i] == '\\' && str[n->i + 1] == 'a')
 	{
@@ -40,7 +40,7 @@ void	ft_slashyer_if1(char *str, char *line, t_norm *n)
 	}
 }
 
-void	ft_slashyer_if2(char *str, char *line, t_norm *n)
+void	process_escape_sequence_vertical_tab(char *str, char *line, t_norm *n)
 {
 	if (str[n->i] == '\\' && str[n->i +1] == 'v')
 	{
@@ -80,8 +80,8 @@ int	ft_slashyer_while(char *str, char *line, t_norm *n)
 		line[n->j++] = str[n->i++];
 		while (str[n->i] != c)
 		{
-			ft_slashyer_if1(str, line, n);
-			ft_slashyer_if2(str, line, n);
+			process_escape_sequence_backspace_alert(str, line, n);
+			process_escape_sequence_vertical_tab(str, line, n);
 		}
 		line[n->j++] = str[n->i++];
 	}
