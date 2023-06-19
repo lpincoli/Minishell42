@@ -11,7 +11,7 @@ SRCS 		=	src/main.c src/utils.c src/command.c src/lexer.c src/node.c src/errors.
 				src/ft_export_if.c src/ft_export_realloc.c src/ft_export_utils.c \
 				src/cd_utils.c src/cd_more_utils.c src/parser2.c src/parser3.c \
 				src/parser4.c src/parserpipe.c src/parsereadir.c src/heredoc_utils.c \
-				src/mainazzo.c src/releasalo.c src/puliscimelo.c
+				src/mainazzo.c src/releasalo.c src/puliscitutto.c
 NAME		= minishell
 OBJS_DIR	= objs/
 OBJS		= $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: lpincoli <lpincoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:41:14 by lpincoli          #+#    #+#             */
-/*   Updated: 2023/06/17 11:49:40 by lpincoli         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:35:28 by lpincoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ typedef struct s_env
 }	t_env;
 
 void	ft_special_release(t_env *sp);
-t_token	*ft_mammamia_release(t_env *sp);
+t_token	*ft_struct_release(t_env *sp);
 void	ft_interrupt_release(t_env *sp);
 void	ft_parsepipe(t_token *args, t_env *sp, t_path *pwd);
 void	ft_remove_redirect(t_env *sp);
 void	ft_find_redirect(t_env *sp);
-int		ft_cerca_il_milanese(t_env *sp);
+int		ft_find_red(t_env *sp);
 void	ft_pulisci_bene(t_env *sp);
 void	ft_freelist(t_token *list);
 t_token	*ft_leftargs(t_token *tk, char c);
@@ -113,7 +113,7 @@ int		ft_unset_logic(t_env *sp);
 int		ft_unset(t_env *sp);
 void	ft_parsereadir(t_env *sp, t_token *args, t_path *pwd);
 void	ft_of_gondo(t_env *sp);
-void	ft_adda_schifo(t_env *sp);
+void	ft_insert_redir(t_env *sp);
 int		ft_is_denied(char *str, t_env *sp);
 void	addbot(t_token **start, char *str, t_norm *n);
 void	ft_grouponize(t_token *token, t_env *sp);

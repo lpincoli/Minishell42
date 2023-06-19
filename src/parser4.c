@@ -6,7 +6,7 @@
 /*   By: lpincoli <lpincoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:40:50 by lpincoli          #+#    #+#             */
-/*   Updated: 2023/06/17 11:48:02 by lpincoli         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:35:27 by lpincoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_pulizie_primavera(t_token *pulisco)
 	}
 }
 
-int	ft_controlla_camino(t_env *sp)
+int	ft_free_check(t_env *sp)
 {
 	t_token	*pulisco;
 
@@ -47,7 +47,7 @@ void	ft_remove_redirect(t_env *sp)
 	t_token	*seguo;
 
 	pulisco = sp->tk;
-	if (ft_controlla_camino(sp))
+	if (ft_free_check(sp))
 		return ;
 	while (pulisco->next)
 	{
@@ -89,7 +89,7 @@ void	ft_find_redirect(t_env *sp)
 	}
 }
 
-t_token	*ft_mammamia_release(t_env *sp)
+t_token	*ft_struct_release(t_env *sp)
 {
 	t_token	*temp;
 	int		i;

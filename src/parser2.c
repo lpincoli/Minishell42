@@ -6,7 +6,7 @@
 /*   By: lpincoli <lpincoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:40:45 by lpincoli          #+#    #+#             */
-/*   Updated: 2023/03/25 23:40:46 by lpincoli         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:29:31 by lpincoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_pulisci_bene(t_env *sp)
 	sp->tk = seguo;
 }
 
-int	ft_cerca_il_milanese(t_env *sp)
+int	ft_find_red(t_env *sp)
 {
 	t_token	*ptr;
 

@@ -6,7 +6,7 @@
 /*   By: lpincoli <lpincoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:40:36 by lpincoli          #+#    #+#             */
-/*   Updated: 2023/03/25 23:40:36 by lpincoli         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:26:32 by lpincoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,3 @@ t_token	*ft_lexer(t_env *sp)
 	ft_create_tk(token, str, sp);
 	return (token);
 }
-
-/*int main() {
-	char sentence[] = "Questa è una frase di esempio";
-	t_node *head = lexer(sentence);
-	printList(head);
-	return 0;
-}*/
-/*
-Questo comando lo fa looppare :cd kola > >pwd cd
-*/

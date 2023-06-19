@@ -6,17 +6,17 @@
 /*   By: lpincoli <lpincoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:40:44 by lpincoli          #+#    #+#             */
-/*   Updated: 2023/06/17 11:48:08 by lpincoli         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:32:23 by lpincoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	ft_faicose(t_env *sp, t_path *pwd)
+void	ft_hand_redirect(t_env *sp, t_path *pwd)
 {
 	ft_find_redirect(sp);
 	ft_remove_redirect(sp);
-	if (ft_cerca_il_milanese(sp))
+	if (ft_find_red(sp))
 		ft_passerone(sp, pwd);
 }
 
@@ -52,7 +52,7 @@ void	ft_parseredir(t_env *sp, t_token *args, t_path *pwd)
 		exit(0);
 	}
 	wait(0);
-	ft_faicose(sp, pwd);
+	ft_hand_redirect(sp, pwd);
 }
 
 void	ft_parseplus(t_env *sp, t_token *args, t_path *pwd)
@@ -80,7 +80,7 @@ void	ft_parseplus(t_env *sp, t_token *args, t_path *pwd)
 		exit(0);
 	}
 	wait(0);
-	ft_faicose(sp, pwd);
+	ft_hand_redirect(sp, pwd);
 }
 
 void	ft_passerone(t_env *sp, t_path *pwd)
@@ -95,7 +95,7 @@ void	ft_passerone(t_env *sp, t_path *pwd)
 		ft_command(sp, pwd);
 	else if (temp->type == 'm')
 	{
-		ft_adda_schifo(sp);
+		ft_insert_redir(sp);
 		ft_parsereadir(sp, temp->prev, pwd);
 	}
 	else

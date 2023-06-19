@@ -6,7 +6,7 @@
 /*   By: lpincoli <lpincoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:40:47 by lpincoli          #+#    #+#             */
-/*   Updated: 2023/03/25 23:40:48 by lpincoli         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:32:51 by lpincoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,24 @@ void	ft_of_gondo(t_env *sp)
 	return ;
 }
 
-void	ft_adda_schifo(t_env *sp)
+void	ft_insert_redir(t_env *sp)
 {
 	t_token	*temp;
 	t_token	*temp2;
-	t_token	*schifo;
+	t_token	*redir_tok;
 
 	temp = sp->tk;
 	while (temp->type != 'm')
 		temp = temp->next;
 	temp->type = 's';
 	temp2 = temp->prev;
-	schifo = ft_calloc(sizeof(t_token), 1);
-	schifo->str = ft_strdup("<");
-	schifo->type = '<';
-	temp2->next = schifo;
-	schifo->next = temp;
-	temp->prev = schifo;
-	schifo->prev = temp2;
+	redir_tok = ft_calloc(sizeof(t_token), 1);
+	redir_tok->str = ft_strdup("<");
+	redir_tok->type = '<';
+	temp2->next = redir_tok;
+	redir_tok->next = temp;
+	temp->prev = redir_tok;
+	redir_tok->prev = temp2;
 }
 
 t_token	*ft_lstsearch(t_token *temp, char c)

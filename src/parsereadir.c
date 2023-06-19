@@ -6,7 +6,7 @@
 /*   By: lpincoli <lpincoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:40:52 by lpincoli          #+#    #+#             */
-/*   Updated: 2023/06/17 11:47:58 by lpincoli         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:36:10 by lpincoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	ft_nipotino(t_env *sp, int *p)
 	exit(0);
 }
 
-void	ft_faimosse(t_env *sp, t_path *pwd)
+void	ft_exec_redir(t_env *sp, t_path *pwd)
 {
 	ft_find_redirect(sp);
 	ft_remove_redirect(sp);
-	if (ft_cerca_il_milanese(sp))
+	if (ft_find_red(sp))
 		ft_passerone(sp, pwd);
 }
 
@@ -83,5 +83,5 @@ void	ft_parsereadir(t_env *sp, t_token *args, t_path *pwd)
 		exit(0);
 	}
 	wait(0);
-	ft_faimosse(sp, pwd);
+	ft_exec_redir(sp, pwd);
 }

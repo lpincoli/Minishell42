@@ -6,7 +6,7 @@
 /*   By: lpincoli <lpincoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:40:56 by lpincoli          #+#    #+#             */
-/*   Updated: 2023/03/25 23:40:56 by lpincoli         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:35:23 by lpincoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_special_release(t_env *sp)
 {
 	t_token	*temp;
 
-	temp = ft_mammamia_release(sp);
+	temp = ft_struct_release(sp);
 	free(temp->str);
 	free(sp->line);
 	free(temp);
