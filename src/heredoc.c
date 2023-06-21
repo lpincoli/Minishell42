@@ -26,7 +26,6 @@ int	free_ifnot_fd(t_env *sp, int fd)
 {
 	if (!fd)
 	{
-		printf("vabeh..\n");
 		free(sp->n->filename);
 		free(sp->n->linea);
 		return (1);
