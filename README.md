@@ -27,6 +27,7 @@
 <h2 id="usage">Usage</h2>
 
 <p>The shell should be launched from the command line after running 'make'. You should see a prompt displaying where you can enter various commands.</p>
+<p>Run the program like this:</p>
 <pre><code>./minishell</code></pre>
 
 <h3 id="features">Features</h3>
