@@ -19,18 +19,17 @@
 <h2 id="installation">Installation</h2>
 
 <ol>
-  <li>Clone the repository: <code>git clone https://github.com/lpincoli/Minishell42.git</code></li>
-  <li>Move to the project's directory: <code>cd Minishell42</code></li>
-  <li>Compile the project: <code>make</code></li>
+  <li>Clone the repository: <pre><code>git clone https://github.com/lpincoli/Minishell42.git</code></pre></li>
+  <li>Move to the project's directory: <pre><code>cd Minishell42</code></pre></li>
+  <li>Compile the project: <pre><code>make</code></pre></li>
 </ol>
 
 <h2 id="usage">Usage</h2>
 
 <p>The shell should be launched from the command line after running 'make'. You should see a prompt displaying where you can enter various commands.</p>
-<pre>
-$> make
+<pre><code>
 $> ./minishell
-</pre>
+</code></pre>
 
 <h3 id="features">Features</h3>
 <ul>
